@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="tempCSS.css"> -->
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: 20px;
+      /* margin-left: 2.5em */
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      float: left;
+      display: grid;
+      grid-template-columns: repeat(autofill, minmax(225px, 1fr));
+      /* padding: auto; */
+      /* grid-gap: 50px; */
+      /* display: flex; */
+    }
+
+    /* .card2 {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: 10 px;
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      float: left;
+      /* display: flex; */
+    /* } */ 
+
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+    
+    button {
+      border: none;
+      outline: 0;
+      display: inline-block;
+      padding: 8px;
+      color: white;
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+    }
+    
+    a {
+      text-decoration: none;
+      font-size: 22px;
+      color: black;
+    }
+    
+    button:hover,
+    a:hover {
+      background-color: #1abc9c;
+      opacity: 0.7;
+    }
+
+    /* Solid border */
+    hr.solid {
+      border-top: 3px solid #bbb;
+    }
+
+    /* Rounded border */
+    hr.rounded {
+      border-top: 8px solid #D77D00;
+      border-radius: 5px;
+    }
+
+    body {
+      font-family: Arial;
+      margin: 0;
+    }
+
+    /* Header/Logo Title */
+    .header {
+      padding: 30px;
+      text-align: center;
+      background: #D77D00;
+      color: white;
+      font-size: 20px;
+    }
+
+    /* Header/Logo Title */
+    .header2 {
+      padding: 20px;
+      text-align: center;
+      background: #1a6ebc;
+      color: white;
+      font-size: 30px;
+      /* line-height:3; */
+    }
+
+    /* Page Content */
+    .content {padding:20px;}
+
+    /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. 
+    It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place 
+    (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. 
+    However, for these versions the navbar will inherit default position */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+
+    /* Right-aligned link */
+    .navbar a.right {
+      float: right;
+    }
+
+    /* Change color on hover */
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    /* Active/current link */
+    .navbar a.active {
+      background-color: #666;
+      color: white;
+    }
+
+    /* Column container */
+    .row {  
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+    }
+
+    /* Create two unequal columns that sits next to each other */
+    /* Sidebar/left column */
+    .side {
+      -ms-flex: 30%; /* IE10 */
+      flex: 30%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .side2 {
+      -ms-flex: 30%; /* IE10 */
+      flex: 30%;
+      background-color: #FFFFFF;
+      padding: 20px;
+    }
+/*||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+    .dropbtn {
+      background-color: #000;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: #1abc9c;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {background-color: #ddd;}
+
+    .show {display: block;}
+
+  </style>
+</head>
+
+<body>
+  <script>
+    function addCard(name) {
+      var wrapper = document.getElementById("cardWrapper");
+      wrapper.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name">${name}</h1> <p class="title">CEO & Founder, Points: 2</p> <p>Harvard University</p> <div style="margin: 24px 0;"> <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div> <p><button>Projects</button></p> </div>`
+    }
+    let foundNames;
+    fetch('https://randomuser.me/api/?results=6').then((resp) => resp.json())
+      .then((data) => {
+        foundNames = data;
+        for (objects of foundNames['results']) {
+          console.log(objects["name"]["first"])
+          addCard(objects["name"]["first"])
+        }
+      });
+
+    function addCard2(name) {
+    var wrapper2 = document.getElementById("cardWrapper2");
+      wrapper2.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name2">${name}</h1> <p class="title2">CEO & Founder, Points: 2</p> <p>Harvard University</p> <div style="margin: 24px 0;"> <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div> <p><button>Projects</button></p> </div>`
+    }
+    let foundNames2;
+    fetch('https://randomuser.me/api/?results=5').then((resp) => resp.json())
+      .then((data) => {
+        foundNames2 = data;
+        for (objects of foundNames2['results']) {
+          console.log(objects["name"]["first"])
+          addCard2(objects["name"]["first"])
+        }
+      });
+
+      /* When the user clicks on the button, 
+      toggle between hiding and showing the dropdown content */
+      function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+  </script>
+
+<div class="header">
+  <h1 style="text-align:Center">Temp Name</h1>
+</div>
+
+<div class="navbar">
+  <a href="#index" class="active">Home</a>
+  <a href="#connect">Connect</a>
+  <a href="#" class="active">Friends</a>
+  <a href="#" class="right">Account</a>
+</div>
+
+<div class="row">
+  <div class="side">
+    <h2>My projects</h2>
+    <h5>In this area you can see your Projects and if anyone has messaged you/respnded to your help</h5>
+    <div class="card"> <img src="team2.jpg" style="width:100%"> 
+      <h1 id="name2">Word Puzzel Solver</h1> <p class="title2">Collaberator: Sabir Kirpal, Harjot Grewal, Linda</p> 
+      <p>Using c++ to create a program that can solve a word problem</p> <div style="margin: 24px 0;"> 
+        <p><a href="google.com">Debugging Help</a></p> Bro why is this not working 
+      </div>
+         <p><button>Projects</button> 
+          <!-- Responses (1) add a link to this later that will make this button go to the project's code -->
+        </p> 
+               
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">Responses (1)</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="google.com">bro you dumb? (Sabir)</a>
+            <!-- <a href="#about">About</a>
+            <a href="#contact">Contact</a> -->
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+<div class="row">
+  <div class="side2">
+    <hr class="rounded">
+    <h2>Friend's Projects</h2>
+    <h5>This will display your friend's projects (Friends will be gained from LinkedIn or social media)</h5>
+    <div class="card"> <img src="team2.jpg" style="width:100%"> 
+      <h1 id="name2">Harjot Grewal</h1> <p class="title2">Level 10 tutor</p> 
+      <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;"> 
+        <p><a href="google.com">Debugging Help</a></p> I am getting a core dump can  someone help me 
+      </div>
+         <p><button>Projects</button></p> <!--add a link to this later that will make this button go to the project's code-->
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="side">
+      <hr class="rounded">
+      <h2>Trending Projects</h2>
+      <h5>This  will display trending projects that  need help</h5>
+      <div id="cardWrapper"> </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="side2">
+    <hr class="rounded">
+    <h2>People you can help</h2>
+    <h5>This  will display projects that need help based on how you have helped others before and the topics you worked on</h5>
+    <div id="cardWrapper2"> </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="e-card-stacked">  -->
+    <!-- <div class="header"> -->
+      <!-- <h1 style="text-align:left">Trending Projects</h1> -->
+      <!-- <p>My supercool header</p> -->
+    <!-- </div> -->
+  <!-- <h1 style="text-align:left">Trending Projects</h1> -->
+  <!-- <div class="content">
+    <div id="cardWrapper"> </div>
+  </div> -->
+  <!-- <div id="cardWrapper"> </div> -->
+  <!-- <br> -->
+  <!-- <hr class="solid">  -->
+  <!-- <div class="header"> -->
+    <!-- <h2 style="text-align:left">Friend's Projects</h2> -->
+    <!-- <p>My supercool header</p> -->
+  <!-- </div> -->
+  <!-- <h2 style="text-align:left">Friend's Projects</h2> -->
+  <!-- <div id="cardWrapper2"> </div> -->
+  <!-- <br> -->
+  <!-- <h2 style="text-align:left">Friend's Projects</h2>
+  <div id="cardWrapper2"> </div> -->
+
+<!-- </body> -->
+
+<!-- <body> -->
+  <!-- <div style = "position:relative;left:20px;top:450px"> -->
+    <!-- <div class="header2"> -->
+    <!-- <h2 style="text-align:left">Friend's Projects</h2> -->
+    <!-- <p>My supercool header</p> -->
+    <!-- </div> -->
+    <!-- <div id="cardWrapper2"> </div> -->
+  <!-- </div> -->
+  <!-- <h2 style="text-align:left">Friend's Projects</h2> -->
+  <!-- <div style = "position:relative;left:20px;top:650px"></div> -->
+<!-- 
+  <div class="card"> <img src="team2.jpg" style="width:100%"> 
+    <h1 id="name2">${name}</h1> <p class="title2">CEO & Founder, Points: 2</p> 
+    <p>Harvard University</p> <div style="margin: 24px 0;"> 
+      <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div>
+       <p><button>Projects</button></p> 
+      </div>
+       -->
+  <!-- <div style = "position:relative;left:20px;top:650px"> -->
+  <!-- <div id="cardWrapper2"> </div> -->
+<!-- </div> -->
+<!-- </div> -->
+</body>
+
+</html>
