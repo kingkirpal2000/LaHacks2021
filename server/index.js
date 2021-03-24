@@ -19,10 +19,12 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(middleware.checktokenSetUser);
+
 app.get('/', (req, res) => {
   res.json({
     message: "La Hacks Server",
-
+    user: req.user,
   });
 });
 
