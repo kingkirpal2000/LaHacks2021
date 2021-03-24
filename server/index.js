@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const auth = require("./auth/auth.js");
 const middleware = require("./auth/middleware.js");
+const tasks = require("./api/tasks.js");
 
 
 app.use(cors());
@@ -26,6 +27,8 @@ app.get('/', (req, res) => {
 });
 
 app.use("/auth", auth);
+
+app.use("/tasks", middleware.isLoggedin, tasks);
 
 app.listen(8081, () => {
     console.log("Listening at http://localhost:8081");
