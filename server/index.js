@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const volleyball = require('volleyball');
 const cors = require('cors');
+const path = require('path')
 
 const auth = require("./auth/auth.js");
 const middleware = require("./auth/middleware.js");
@@ -18,14 +19,13 @@ app.use(function(req, res, next) {
   res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
   next();
 });
+app.use('/views/', express.static('../HTML'))
 
 app.use(middleware.checktokenSetUser);
 
 app.get('/', (req, res) => {
-  res.json({
-    message: "La Hacks Server",
-    user: req.user,
-  });
+  //res.render("../HTML/index.html");
+  res.send("LA Hacks Server 8081")
 });
 
 app.use("/auth", auth);
