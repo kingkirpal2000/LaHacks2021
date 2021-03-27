@@ -28,13 +28,13 @@
       font-family: 'Times New Roman', Times, serif;
       float: left;
       /* display: flex; */
-    /* } */ 
+    /* } */
 
     .title {
       color: grey;
       font-size: 18px;
     }
-    
+
     button {
       border: none;
       outline: 0;
@@ -47,13 +47,13 @@
       width: 100%;
       font-size: 18px;
     }
-    
+
     a {
       text-decoration: none;
       font-size: 22px;
       color: black;
     }
-    
+
     button:hover,
     a:hover {
       background-color: #1abc9c;
@@ -98,9 +98,9 @@
     /* Page Content */
     .content {padding:20px;}
 
-    /* Sticky navbar - toggles between relative and fixed, depending on the scroll position. 
-    It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place 
-    (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. 
+    /* Sticky navbar - toggles between relative and fixed, depending on the scroll position.
+    It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place
+    (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions.
     However, for these versions the navbar will inherit default position */
     .navbar {
       overflow: hidden;
@@ -138,7 +138,7 @@
     }
 
     /* Column container */
-    .row {  
+    .row {
       display: -ms-flexbox; /* IE10 */
       display: flex;
       -ms-flex-wrap: wrap; /* IE10 */
@@ -221,7 +221,7 @@
 
     function addCard2(name) {
     var wrapper2 = document.getElementById("cardWrapper2");
-      wrapper2.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name2">${name}</h1> <p class="title2">CEO & Founder, Points: 2</p> <p>Harvard University</p> <div style="margin: 24px 0;"> <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div> <p><button>Projects</button></p> </div>`
+      wrapper2.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name2">${name}</h1> <p class="title2">CEO & Founder, Points: 2</p> <p>Harvard University</p> <div style="margin: 24px 0;"> <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div> <a href="Editor.html"><p><button>Projects</button></p></a> </div>`
     }
     let foundNames2;
     fetch('https://randomuser.me/api/?results=5').then((resp) => resp.json())
@@ -233,7 +233,7 @@
         }
       });
 
-      /* When the user clicks on the button, 
+      /* When the user clicks on the button,
       toggle between hiding and showing the dropdown content */
       function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
@@ -269,15 +269,15 @@
   <div class="side">
     <h2>My projects</h2>
     <h5>In this area you can see your Projects and if anyone has messaged you/respnded to your help</h5>
-    <div class="card"> <img src="team2.jpg" style="width:100%"> 
-      <h1 id="name2">Word Puzzel Solver</h1> <p class="title2">Collaberator: Sabir Kirpal, Harjot Grewal, Linda</p> 
-      <p>Using c++ to create a program that can solve a word problem</p> <div style="margin: 24px 0;"> 
-        <p><a href="google.com">Debugging Help</a></p> Bro why is this not working 
+    <div class="card"> <img src="team2.jpg" style="width:100%">
+      <h1 id="name2">Word Puzzel Solver</h1> <p class="title2">Collaberator: Sabir Kirpal, Harjot Grewal, Linda</p>
+      <p>Using c++ to create a program that can solve a word problem</p> <div style="margin: 24px 0;">
+        <p><a href="google.com">Debugging Help</a></p> Bro why is this not working
       </div>
-         <p><button>Projects</button> 
+         <p><button>Projects</button>
           <!-- Responses (1) add a link to this later that will make this button go to the project's code -->
-        </p> 
-               
+        </p>
+
         <div class="dropdown">
           <button onclick="myFunction()" class="dropbtn">Responses (1)</button>
           <div id="myDropdown" class="dropdown-content">
@@ -295,10 +295,10 @@
     <hr class="rounded">
     <h2>Friend's Projects</h2>
     <h5>This will display your friend's projects (Friends will be gained from LinkedIn or social media)</h5>
-    <div class="card"> <img src="team2.jpg" style="width:100%"> 
-      <h1 id="name2">Harjot Grewal</h1> <p class="title2">Level 10 tutor</p> 
-      <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;"> 
-        <p><a href="google.com">Debugging Help</a></p> I am getting a core dump can  someone help me 
+    <div class="card"> <img src="team2.jpg" style="width:100%">
+      <h1 id="name2">Harjot Grewal</h1> <p class="title2">Level 10 tutor</p>
+      <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;">
+        <p><a href="google.com">Debugging Help</a></p> I am getting a core dump can  someone help me
       </div>
          <p><button>Projects</button></p> <!--add a link to this later that will make this button go to the project's code-->
     </div>
@@ -371,12 +371,12 @@
   <!-- </div> -->
   <!-- <h2 style="text-align:left">Friend's Projects</h2> -->
   <!-- <div style = "position:relative;left:20px;top:650px"></div> -->
-<!-- 
-  <div class="card"> <img src="team2.jpg" style="width:100%"> 
-    <h1 id="name2">${name}</h1> <p class="title2">CEO & Founder, Points: 2</p> 
-    <p>Harvard University</p> <div style="margin: 24px 0;"> 
+<!--
+  <div class="card"> <img src="team2.jpg" style="width:100%">
+    <h1 id="name2">${name}</h1> <p class="title2">CEO & Founder, Points: 2</p>
+    <p>Harvard University</p> <div style="margin: 24px 0;">
       <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div>
-       <p><button>Projects</button></p> 
+       <p><button>Projects</button></p>
       </div>
        -->
   <!-- <div style = "position:relative;left:20px;top:650px"> -->
