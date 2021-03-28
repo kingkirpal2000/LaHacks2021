@@ -161,37 +161,23 @@
 
     </style>
 
-    <body>
-        <script>
-            function addCard(name) {
-      var wrapper = document.getElementById("cardWrapper");
-      wrapper.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name">${name}</h1> <p class="title">SCHOOL YEAR OR OCCUPATION, Points: 2</p> <p>SCHOOL OR COMPANY</p> <div style="margin: 24px 0;"> <h3>Project</h3> <p>INTEREST OR EXPERIENCE</p> </div> <p><button>Projects</button></p> </div>`
+<body>
+    <script>
+        function addCard(name) {
+  var wrapper = document.getElementById("cardWrapper");
+  wrapper.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name">${name}</h1> <p class="title">SCHOOL YEAR OR OCCUPATION, Tutor Level</p> <p>SCHOOL OR COMPANY</p> <div style="margin: 24px 0;"> <h3>Project</h3> <p>INTEREST OR EXPERIENCE</p3> </div> <p><button>Projects</button></p> </div>`
+}
+let foundNames;
+fetch('https://randomuser.me/api/?results=4').then((resp) => resp.json())
+  .then((data) => {
+    foundNames = data;
+    for (objects of foundNames['results']) {
+      console.log(objects["name"]["first"])
+      addCard(objects["name"]["first"])
     }
-    let foundNames;
-    fetch('https://randomuser.me/api/?results=6').then((resp) => resp.json())
-      .then((data) => {
-        foundNames = data;
-        for (objects of foundNames['results']) {
-          console.log(objects["name"]["first"])
-          addCard(objects["name"]["first"])
-        }
-      });
+  });
 
-    function addCard2(name) {
-    var wrapper2 = document.getElementById("cardWrapper2");
-      wrapper2.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name2">${name}</h1> <p class="title2">Junior, Points: 2</p> <p>University of California, Merced</p> <div style="margin: 24px 0;"> <h3>Project</h3> <p>Specialize in Database structures</p> </div> <p><button>Projects</button></p> </div>`
-    }
-    let foundNames2;
-    fetch('https://randomuser.me/api/?results=5').then((resp) => resp.json())
-      .then((data) => {
-        foundNames2 = data;
-        for (objects of foundNames2['results']) {
-          console.log(objects["name"]["first"])
-          addCard2(objects["name"]["first"])
-        }
-      });
-
-      /* When the user clicks on the button, 
+  /* When the user clicks on the button, 
       toggle between hiding and showing the dropdown content */
       function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
@@ -218,17 +204,49 @@
   
   <div class="navbar">
     <a href="http://localhost:8081/views/index.html">Home</a>
-    <a href="#" class="active">Connect</a>
-    <a href="http://localhost:8081/views/friends.html">Friends</a>
+    <a href="http://localhost:8081/views/connect.html">Connect</a>
+    <a href="#" class="active">Friends</a>
     <a href="#" class="right">Account</a>
   </div>
 
   <div class="row">
     <div class="side">
       <hr class="rounded">
-      <h2>People from UC Merced</h2>
-      <h5>This  will display people from your school so that you can connect with them and possibly work with them</h5>
-      <div id="cardWrapper2"> </div>
+      <h2>Friends</h2>
+      <h5>This  will display the friends you have made on this site</h5>
+
+      <div class="card"> <img src="team2.jpg" style="width:100%"> 
+        <h1 id="name2">Harjot Grewal</h1> <p class="title2">Level 5 tutor</p> 
+        <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;"> 
+          <h3>Project they are working on</h3> <p>Projects we have worked on </p>
+        </div>
+           <p><button>Projects</button></p> <!--add a link to this later that will make this button go to the project's code-->
+      </div>
+
+      <div class="card"> <img src="team2.jpg" style="width:100%"> 
+        <h1 id="name2">Sabir Kirpal</h1> <p class="title2">Level 20 tutor</p> 
+        <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;"> 
+          <h3>Project they are working on</h3> <p>Projects we have worked on </p> 
+        </div>
+           <p><button>Projects</button></p> <!--add a link to this later that will make this button go to the project's code-->
+      </div>
+
+      <div class="card"> <img src="team2.jpg" style="width:100%"> 
+        <h1 id="name2">Linda Garcia</h1> <p class="title2">Level 19 tutor</p> 
+        <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;"> 
+          <h3>Project they are working on</h3> <p>Projects we have worked on </p> 
+        </div>
+           <p><button>Projects</button></p> <!--add a link to this later that will make this button go to the project's code-->
+      </div>
+
+      <div class="card"> <img src="team2.jpg" style="width:100%"> 
+        <h1 id="name2">Elon Musk</h1> <p class="title2">Level 25 tutor</p> 
+        <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;"> 
+          <h3>Project they are working on</h3> <p>Projects we have worked on </p> 
+        </div>
+           <p><button>Projects</button></p> <!--add a link to this later that will make this button go to the project's code-->
+      </div>
+      <!-- <div id="cardWrapper2"> </div> -->
     </div>
   </div>
 </div>
@@ -236,8 +254,8 @@
 <div class="row">
     <div class="side2">
       <hr class="rounded">
-      <h2>People with similar interest</h2>
-      <h5>This  will display people who are seen to have similar intrest to yous</h5>
+      <h2>People you have worked with/help</h2>
+      <h5>This  will display people that have helped you or you have helped</h5>
       <div id="cardWrapper"> </div>
     </div>
   </div>

@@ -67,7 +67,7 @@
 
     /* Rounded border */
     hr.rounded {
-      border-top: 8px solid #D77D00;
+      border-top: 8px solid #1abc9c;
       border-radius: 5px;
     }
 
@@ -80,7 +80,7 @@
     .header {
       padding: 30px;
       text-align: center;
-      background: #D77D00;
+      background: #1abc9c;
       color: white;
       font-size: 20px;
     }
@@ -89,7 +89,7 @@
     .header2 {
       padding: 20px;
       text-align: center;
-      background: #1a6ebc;
+      background: #1abc9c;
       color: white;
       font-size: 30px;
       /* line-height:3; */
@@ -207,7 +207,7 @@
   <script>
     function addCard(name) {
       var wrapper = document.getElementById("cardWrapper");
-      wrapper.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name">${name}</h1> <p class="title">CEO & Founder, Points: 2</p> <p>Harvard University</p> <div style="margin: 24px 0;"> <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div> <p><button>Projects</button></p> </div>`
+      wrapper.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name">${name}</h1> <p class="title">Tutor Level</p> <p>School/University/Company</p> <div style="margin: 24px 0;"> <h3>Project that needs help</h3> Quick description of your problem </div> <p><a ref="http://localhost:8081/views/editorresponse.html"><button>Projects</button></a></p> </div>`
     }
     let foundNames;
     fetch('https://randomuser.me/api/?results=6').then((resp) => resp.json())
@@ -221,7 +221,7 @@
 
     function addCard2(name) {
     var wrapper2 = document.getElementById("cardWrapper2");
-      wrapper2.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name2">${name}</h1> <p class="title2">CEO & Founder, Points: 2</p> <p>Harvard University</p> <div style="margin: 24px 0;"> <p><a href="google.com">Project</a></p> Having trouble with Syntax can Someone help me? </div> <p><button>Projects</button></p> </div>`
+      wrapper2.innerHTML += `<div class="card"> <img src="team2.jpg" style="width:100%"> <h1 id="name2">${name}</h1> <p class="title2">Tutor Level</p> <p>School/University/Company</p> <div style="margin: 24px 0;"> <h3>Project that needs help</h3>Quick description of your problem</div> <p><a ref="http://localhost:8081/views/editorresponse.html"><button>Projects</button></a></p> </div>`
     }
     let foundNames2;
     fetch('https://randomuser.me/api/?results=5').then((resp) => resp.json())
@@ -255,13 +255,13 @@
   </script>
 
 <div class="header">
-  <h1 style="text-align:Center">Temp Name</h1>
+  <h1 style="text-align:Center">Hackers Hangout</h1>
 </div>
 
 <div class="navbar">
   <a href="#index" class="active">Home</a>
-  <a href="#connect">Connect</a>
-  <a href="#" class="active">Friends</a>
+  <a href="http://localhost:8081/views/connect.html">Connect</a>
+  <a href="http://localhost:8081/views/friends.html">Friends</a>
   <a href="#" class="right">Account</a>
 </div>
 
@@ -296,11 +296,11 @@
     <h2>Friend's Projects</h2>
     <h5>This will display your friend's projects (Friends will be gained from LinkedIn or social media)</h5>
     <div class="card"> <img src="team2.jpg" style="width:100%"> 
-      <h1 id="name2">Harjot Grewal</h1> <p class="title2">Level 10 tutor</p> 
+      <h1 id="name2">Harjot Grewal</h1> <p class="title2">Level 5 tutor</p> 
       <p>Junior at University of California, Merced</p> <div style="margin: 24px 0;"> 
-        <p><a href="google.com">Debugging Help</a></p> I am getting a core dump can  someone help me 
+        <h3>Debugging Help</h3> <p>I am getting a core dump can  someone help me</p>
       </div>
-         <p><button>Projects</button></p> <!--add a link to this later that will make this button go to the project's code-->
+         <p><a href="http://localhost:8081/views/editorresponse.html"><button>Projects</button></a></p> <!--add a link to this later that will make this button go to the project's code-->
     </div>
   </div>
 
